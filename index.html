@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantas Medicinales - Evidencia Científica</title>
+  <meta name="description" content="Portal interactivo con evidencia científica completa y revisiones sistemáticas sobre plantas de uso médico.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo" onclick="navigateToPlant('inicio')">
+        <div class="logo-icon">🌿</div>
+        <span>Fitoterapia Clinica</span>
+      </a>
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24">
+          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" id="plantSearch" placeholder="Buscar planta o síntoma...">
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Principal -->
+  <div class="main-wrapper">
+    
+    <!-- Sidebar / Navegación -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Planes de Evidencia</div>
+      <nav class="tabs-nav">
+        <button class="tab-btn active" data-target="inicio">
+          <span>Inicio / Resumen</span>
+          <span class="scientific-name">Vista General</span>
+        </button>
+        <button class="tab-btn" data-target="aloe-vera">
+          <span>Aloe Vera</span>
+          <span class="scientific-name">Aloe vera</span>
+        </button>
+        <button class="tab-btn" data-target="calendula">
+          <span>Caléndula</span>
+          <span class="scientific-name">Calendula officinalis</span>
+        </button>
+        <button class="tab-btn" data-target="hiedra">
+          <span>Hiedra</span>
+          <span class="scientific-name">Hedera helix</span>
+        </button>
+        <button class="tab-btn" data-target="lavanda">
+          <span>Lavanda</span>
+          <span class="scientific-name">Lavandula angustifolia</span>
+        </button>
+        <button class="tab-btn" data-target="toronjil">
+          <span>Toronjil / Melisa</span>
+          <span class="scientific-name">Melissa officinalis</span>
+        </button>
+        <button class="tab-btn" data-target="chile">
+          <span>Chile / Capsaicina</span>
+          <span class="scientific-name">Capsicum annuum</span>
+        </button>
+        <button class="tab-btn" data-target="higo">
+          <span>Higo / Té de hoja</span>
+          <span class="scientific-name">Ficus carica</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Zona de Contenido -->
+    <main class="content-area">
+
+      <!-- ================= SECCIÓN INICIO ================= -->
+      <section id="inicio" class="plant-section active">
+        <div class="welcome-container">
+          <h1 class="welcome-title">Plantas de Uso Médico</h1>
+          <p class="welcome-desc">Evidencia clínica rigurosa, metanálisis y revisiones sistemáticas sin omisiones. Navegue a través de las pestañas laterales o haga clic en las tarjetas inferiores para explorar en detalle cada estudio.</p>
+          
+          <div class="plant-cards-grid">
+            
+            <div class="info-card plant-card-link" onclick="navigateToPlant('aloe-vera')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/aloe_vera.png" alt="Aloe vera">
+              </div>
+              <h3>Aloe Vera</h3>
+              <p>Aloe vera</p>
+            </div>
+
+            <div class="info-card plant-card-link" onclick="navigateToPlant('calendula')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/calendula.png" alt="Caléndula">
+              </div>
+              <h3>Caléndula</h3>
+              <p>Calendula officinalis</p>
+            </div>
+
+            <div class="info-card plant-card-link" onclick="navigateToPlant('hiedra')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/hiedra.png" alt="Hiedra">
+              </div>
+              <h3>Hiedra</h3>
+              <p>Hedera helix</p>
+            </div>
+
+            <div class="info-card plant-card-link" onclick="navigateToPlant('lavanda')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/lavanda.png" alt="Lavanda">
+              </div>
+              <h3>Lavanda</h3>
+              <p>Lavandula angustifolia</p>
+            </div>
+
+            <div class="info-card plant-card-link" onclick="navigateToPlant('toronjil')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/toronjil.png" alt="Toronjil">
+              </div>
+              <h3>Toronjil</h3>
+              <p>Melissa officinalis</p>
+            </div>
+
+            <div class="info-card plant-card-link" onclick="navigateToPlant('chile')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/chile.png" alt="Chile">
+              </div>
+              <h3>Chile / Capsaicina</h3>
+              <p>Capsicum annuum</p>
+            </div>
+
+            <div class="info-card plant-card-link" onclick="navigateToPlant('higo')">
+              <div class="card-image-wrapper">
+                <img src="assets/images/higo.png" alt="Higo">
+              </div>
+              <h3>Higo</h3>
+              <p>Ficus carica</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN ALOE VERA ================= -->
+      <section id="aloe-vera" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/aloe_vera.png" alt="Aloe vera">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Aloe Vera</h1>
+              <div class="scientific">Aloe vera</div>
+            </div>
+            <div class="plant-tagline">Evidencia clínica y revisiones sistemáticas sobre quemaduras y cicatrización de heridas.</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Ficha de Fuente -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📄</div>
+              <h2>1. Identificación de la Fuente de Evidencia</h2>
+            </div>
+            <div class="card-body">
+              <div class="metadata-grid">
+                <div class="metadata-item full-width"><div class="metadata-label">Título</div><div class="metadata-value">Aloe vera for treating acute and chronic wounds</div></div>
+                <div class="metadata-item full-width"><div class="metadata-label">Autores</div><div class="metadata-value">Antonio D. Dat, Flora Poon, Kim B.T. Pham, Jenny Doust</div></div>
+                <div class="metadata-item full-width"><div class="metadata-label">Afiliación</div><div class="metadata-value">Faculty of Health Sciences and Medicine, Bond University, Gold Coast, Australia</div></div>
+                <div class="metadata-item"><div class="metadata-label">Tipo de Estudio</div><div class="metadata-value">Revisión sistemática con metanálisis (Cochrane Review)</div></div>
+                <div class="metadata-item"><div class="metadata-label">Publicación</div><div class="metadata-value">Cochrane Database of Systematic Reviews, 2012 Feb 15;(2):CD008762</div></div>
+                <div class="metadata-item"><div class="metadata-label">DOI</div><div class="metadata-value">10.1002/14651858.CD008762.pub2</div></div>
+                <div class="metadata-item"><div class="metadata-label">PMID / PMCID</div><div class="metadata-value">22336851 / PMC9943919</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alcance del estudio -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🎯</div>
+              <h2>2. Alcance del Estudio</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Criterios de Elegibilidad:</strong> Ensayos controlados aleatorizados (ECA) sobre <em>Aloe vera</em> (geles, mucílago, apósitos o combinaciones) en heridas agudas o crónicas.</li>
+                <li><strong>Población:</strong> Pacientes con heridas agudas (laceraciones, incisiones quirúrgicas, quemaduras) y heridas crónicas (heridas infectadas, úlceras arteriales y venosas, úlceras por presión, heridas quirúrgicas por intención secundaria).</li>
+                <li><strong>Intervención:</strong> Productos derivados del <em>Aloe vera</em> (mucílago, geles tópicos, apósitos) o combinaciones con otros apósitos.</li>
+                <li><strong>Comparadores:</strong> Cuidado estándar, sulfadiazina de plata, otros apósitos.</li>
+                <li><strong>Desenlace Principal:</strong> Medida objetiva de cicatrización (proporción de heridas completamente curadas o tiempo hasta la curación completa).</li>
+                <li><strong>Bases Buscadas:</strong> Registro Especializado del Grupo Cochrane de Heridas, CENTRAL, Ovid MEDLINE, Ovid EMBASE, Ovid AMED, EBSCO CINAHL.</li>
+                <li><strong>Período de Búsqueda:</strong> Hasta septiembre 2011 (sin restricción de idioma ni fecha).</li>
+                <li><strong>Universo de Evidencia Analizada:</strong> 7 ECA elegibles, con un total de 347 participantes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tabla Resumen de hallazgos -->
+          <div class="info-card full-width">
+            <div class="card-header">
+              <div class="card-icon">📊</div>
+              <h2>3. Resumen de Hallazgos por Tipo de Herida</h2>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tipo de herida</th>
+                      <th>Comparador</th>
+                      <th>Resultado</th>
+                      <th>Estimación del efecto (IC 95%)</th>
+                      <th>Dirección del efecto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Quemaduras (aguda)</strong></td>
+                      <td>Sulfadiazina de plata</td>
+                      <td>Curación completa</td>
+                      <td>RR 1,41 (0,70 a 2,85)</td>
+                      <td>Sin diferencia significativa</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Post-hemorroidectomía (aguda)</strong></td>
+                      <td>Cuidado estándar</td>
+                      <td>Tiempo de curación</td>
+                      <td>RR 16,33 días (3,46 a 77,15)</td>
+                      <td><span style="color: var(--color-accent);">Reducción del tiempo de curación</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Biopsias de piel (aguda)</strong></td>
+                      <td>Cuidado estándar</td>
+                      <td>Proporción de curados</td>
+                      <td>Sin diferencia reportada</td>
+                      <td>Sin diferencia significativa</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Úlceras por presión (crónica)</strong></td>
+                      <td>Comparador no especificado</td>
+                      <td>Cicatrización</td>
+                      <td>RR 0,10 (−1,59 a 1,79)</td>
+                      <td>Sin diferencia significativa</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Heridas quirúrgicas por intención secundaria (crónica)</strong></td>
+                      <td>Cuidado estándar</td>
+                      <td>Tiempo de curación</td>
+                      <td>DM 30 días (7,59 a 52,41)</td>
+                      <td><span style="color: var(--color-danger); font-weight: 600;">Retraso significativo de la cicatrización</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evaluación de la Calidad de la Evidencia -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">⚖️</div>
+              <h2>4. Evaluación de la Calidad de la Evidencia</h2>
+            </div>
+            <div class="card-body">
+              <div class="flow-diagram">
+                <div class="flow-node">
+                  <div class="flow-node-title">Estudios</div>
+                  <div class="flow-node-value">7 ECA</div>
+                </div>
+                <div class="flow-node">
+                  <div class="flow-node-title">Muestra</div>
+                  <div class="flow-node-value">347 Part.</div>
+                </div>
+                <div class="flow-node">
+                  <div class="flow-node-title">Riesgo Sesgo</div>
+                  <div class="flow-node-value" style="color: var(--color-danger);">Alto riesgo</div>
+                </div>
+                <div class="flow-node">
+                  <div class="flow-node-title">Heterogeneidad</div>
+                  <div class="flow-node-value" style="color: var(--color-danger);">Evita metanálisis</div>
+                </div>
+              </div>
+              
+              <div class="alert alert-danger" style="margin-top: 1rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div>
+                  <strong>Calidad Global: EVIDENCIA INSUFICIENTE</strong><br>
+                  Resultados a interpretar con extrema precaución.
+                </div>
+              </div>
+
+              <strong>Limitaciones metodológicas críticas identificadas:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Pequeño tamaño muestral (347 participantes en total, distribuidos en 7 ensayos).</li>
+                <li>Alto riesgo de sesgo en la mayoría de los ensayos incluidos.</li>
+                <li>Heterogeneidad clínica que impidió la combinación estadística de resultados.</li>
+                <li>Resultados contradictorios entre ensayos y tipos de heridas.</li>
+                <li>Intervalos de confianza amplios que indican imprecisión.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Síntesis Interpretativa de Resultados -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🧠</div>
+              <h2>5. Síntesis Interpretativa de Resultados</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Sobre la eficacia en heridas agudas:</strong> El <em>Aloe vera</em> no demostró superioridad frente a sulfadiazina de plata en quemaduras (RR 1,41; IC 95% cruza la unidad). Se observó una reducción en el tiempo de curación tras hemorroidectomía, aunque con un intervalo de confianza extremadamente amplio (3,46 a 77,15 días), lo que limita su precisión y aplicabilidad clínica. En biopsias de piel no se identificó diferencia en la proporción de pacientes completamente curados.</li>
+                <li><strong>Sobre la eficacia en heridas crónicas:</strong> No se detectaron diferencias estadísticamente significativas en úlceras por presión. En heridas quirúrgicas por intención secundaria, el <em>Aloe vera</em> <strong>retrasó significativamente la cicatrización en 30 días</strong> (IC 95%: 7,59 a 52,41), un hallazgo que sugiere un posible efecto deletéreo en este contexto clínico específico.</li>
+                <li><strong>Sobre la seguridad:</strong> La revisión no reportó un análisis sistemático de eventos adversos dentro del resumen, por lo que el perfil de seguridad no puede establecerse de forma concluyente a partir de esta fuente.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Conclusión Clínica -->
+          <div class="info-card full-width">
+            <div class="card-header">
+              <div class="card-icon">🩺</div>
+              <h2>6. Conclusión Clínica (Declaración formal de los autores)</h2>
+            </div>
+            <div class="card-body">
+              <blockquote>
+                "Actualmente falta evidencia de ensayos clínicos de alta calidad que respalde el uso de agentes tópicos de Aloe vera o apósitos de Aloe vera como tratamientos para heridas agudas y crónicas."
+              </blockquote>
+              <div class="highlight-box">
+                <p><strong>Implicación para la toma de decisiones:</strong> Con base en esta revisión sistemática Cochrane, la evidencia disponible no permite avalar de forma concluyente el uso del <em>Aloe vera</em> como tratamiento para heridas agudas o crónicas. Los resultados son heterogéneos, provienen de ensayos de baja calidad metodológica y, en al menos un escenario clínico (heridas quirúrgicas por intención secundaria), se documentó un retraso significativo en la cicatrización. Por tanto, su uso institucional o protocolario debería condicionarse a la generación de nueva evidencia procedente de ECA de alta calidad, con tamaño muestral adecuado, ocultamiento de asignación, cegamiento y desenlaces estandarizados.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN CALÉNDULA ================= -->
+      <section id="calendula" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/calendula.png" alt="Caléndula">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Caléndula</h1>
+              <div class="scientific">Calendula officinalis</div>
+            </div>
+            <div class="plant-tagline">Evaluación y propiedades químicas en la Alimentación Humana.</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Fuente y Objetivo -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📚</div>
+              <h2>1. Fuente de Evidencia y Objetivo</h2>
+            </div>
+            <div class="card-body">
+              <strong>Referencia Bibliográfica:</strong>
+              <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">Franzen, F. de L., Rodríguez de Oliveira, M. S., Lidório, H. F., Menegaes, J. F., & Fries, L. L. M. (2019). Composición química de pétalos de flores de rosa, girasol y caléndula para su uso en la alimentación humana. <em>Ciencia y Tecnología Agropecuaria</em>, 20(1), 125-135. <a href="https://doi.org/10.21930/rcta.vol20_num1_art:1252" target="_blank" style="color: var(--color-accent);">DOI Link</a></p>
+              
+              <strong>Objetivo del Estudio:</strong>
+              <p>El estudio tuvo como finalidad caracterizar químicamente los pétalos de tres especies florales, con un enfoque específico en la caléndula (<em>Calendula officinalis L.</em>), para validar su aplicación segura y nutricional en la alimentación humana.</p>
+            </div>
+          </div>
+
+          <!-- Perfil Nutricional -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🍎</div>
+              <h2>2. Perfil Nutricional Cuantificado de la Caléndula</h2>
+            </div>
+            <div class="card-body">
+              <p style="margin-bottom: 0.5rem;">El análisis fisicoquímico (en base húmeda) por cada 100 g demuestra:</p>
+              <ul>
+                <li><strong>Humedad: 89,34 %</strong> (Alto contenido de agua, favorece la hidratación y el tránsito intestinal).</li>
+                <li><strong>Valor Calórico Bruto: 45,52 kcal / 100 g</strong> (Alimento de bajo valor calórico, ideal para dietas de control de peso).</li>
+                <li><strong>Extracto Etéreo (Lípidos/Aceites esenciales): 1,32 %</strong> (El más alto entre las flores evaluadas, indicando presencia de aceites esenciales y pigmentos beneficiosos, manteniéndose dentro de límites saludables).</li>
+                <li><strong>Carbohidratos:</strong> 5,62 %.</li>
+                <li><strong>Proteína bruta:</strong> 1,20 %.</li>
+                <li><strong>Fibra bruta:</strong> 1,59 %.</li>
+                <li><strong>Cenizas (Minerales): 0,72 %</strong> (Indica la presencia de minerales esenciales).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Usos y aplicaciones -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🍳</div>
+              <h2>3. Usos y Aplicaciones Avalados</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Culinarío:</strong> Sus pétalos son ricos en carotenoides y aceites esenciales, ofreciendo un paladar picante. Se avala su uso en arroces, pescados, quesos, mantequillas, yogures, tortillas y como sustituto natural del sabor del azafrán. También se valida su uso en adornos para pasteles y platos dulces/salados.</li>
+                <li><strong>Saludable:</strong> Al ser clasificada como un alimento de bajo valor calórico (grupo A de glúcidos), se recomienda para la constitución de dietas especiales y prevención de enfermedades crónico-degenerativas.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Seguridad y Conclusión -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">⚠️</div>
+              <h2>4. Consideraciones de Seguridad y Conclusión</h2>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-warning">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <div>
+                  <strong>Consideraciones de Seguridad para su Consumo:</strong><br>
+                  Es <strong>obligatoria la retirada del polen</strong> de las flores de caléndula, ya que este componente puede causar reacciones alérgicas en individuos sensibles.
+                </div>
+              </div>
+              
+              <strong>Conclusión:</strong>
+              <p style="margin-top: 0.5rem;">La evidencia científica generada por Franzen et al. (2019) concluye que los pétalos de <em>Calendula officinalis</em> poseen nutrientes esenciales para una dieta sana, con características químicas similares a hortalizas convencionales (como el brócoli o la coliflor) y pequeñas frutas (como el arándano). Por lo tanto, se avala a la caléndula como <strong>una materia prima prometedora y segura para la alimentación humana</strong>, ya sea para consumo in natura o como ingrediente en formulaciones alimentarias.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN HIEDRA ================= -->
+      <section id="hiedra" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/hiedra.png" alt="Hiedra">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Hiedra</h1>
+              <div class="scientific">Hedera helix</div>
+            </div>
+            <div class="plant-tagline">Meta-análisis de ensayos controlados para tos en infecciones respiratorias agudas.</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Ficha de Evidencia Científica -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📌</div>
+              <h2>Ficha de Evidencia Científica</h2>
+            </div>
+            <div class="card-body">
+              <div class="badge-container">
+                <span class="badge badge-accent">Evidencia: Alta</span>
+                <span class="badge">Meta-análisis ECR Doble Ciego</span>
+                <span class="badge">Adultos</span>
+              </div>
+              <ul>
+                <li><strong>Planta Medicinal / Principio Activo:</strong> Extracto seco de hoja de Hiedra (<em>Hedera helix L.</em>), estandarizado como EA 575.</li>
+                <li><strong>Indicación Avalada:</strong> Tratamiento sintomático de la tos aguda asociada a infecciones del tracto respiratorio (ITRs) en adultos.</li>
+                <li><strong>Nivel de Evidencia:</strong> Alto (Metaanálisis de Ensayos Clínicos Randomizados, Doble Ciego y Controlados con Placebo - ECR).</li>
+                <li><strong>Fuente Bibliográfica:</strong>
+                  <ul>
+                    <li>Revista: <em>Scientific Reports</em> (Nature Portfolio), 2022; 12:20041.</li>
+                    <li>Autores: Völp A, Schmitz J, Bulitta M, et al.</li>
+                    <li>Título original: <em>Ivy leaves extract EA 575 in the treatment of cough during acute respiratory tract infections: meta-analysis of double-blind, randomized, placebo-controlled trials.</em></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Diseño del Estudio y Población -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🔬</div>
+              <h2>1. Diseño del Estudio y Población</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Tipo de análisis:</strong> Metaanálisis de datos individuales de pacientes (IPD) de 2 ensayos clínicos (Estudio A y Estudio B). <br><em>Nota: Este diseño es considerado el "estándar de oro" para evaluar eficacia, superando a las revisiones sistemáticas convencionales.</em></li>
+                <li><strong>Población:</strong> 390 adultos ambulatorios con tos aguda derivada de ITRs.</li>
+                <li><strong>Intervención:</strong> 105 mg/día de extracto seco de hiedra (EA 575) durante 7 días, frente a placebo.</li>
+                <li><strong>Tamaño del efecto:</strong> Hedges' g = 0.77 (<span style="color: var(--color-accent); font-weight: 600;">Efecto clínicamente moderado a grande</span>).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Resultados de Eficacia Clave -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📈</div>
+              <h2>2. Resultados de Eficacia Clave</h2>
+            </div>
+            <div class="card-body">
+              <p style="margin-bottom: 0.5rem;">El extracto de hiedra EA 575 demostró superioridad estadística y clínica frente al placebo en todos los parámetros evaluados:</p>
+              <ul>
+                <li><strong>Inicio de acción rápido:</strong> Reducción significativa de la severidad de la tos (medida por la escala BSS) observable a partir del <strong>segundo día</strong> de tratamiento (p < 0.001).</li>
+                <li><strong>Aceleración de la recuperación:</strong> La mejoría clínica lograda con EA 575 a los 4 días de tratamiento fue equivalente a la que logró el grupo placebo tras 7 días (fin del tratamiento).</li>
+                <li><strong>Resolución de la tos:</strong> Al finalizar el tratamiento (día 7), el 18.1% de los pacientes tratados con hiedra estaban libres de tos, frente al 9.3% del placebo. Tras una semana sin tratamiento (día 14), la tasa de pacientes sin tos ascendió al <strong>56.2% (hiedra) vs. 25.6% (placebo)</strong>.</li>
+                <li><strong>Tasa de respuesta clínica:</strong> El 93.4% de los pacientes tratados con EA 575 logró una mejoría clínicamente detectable (reducción de al menos 4 puntos en la escala BSS), frente al 76.5% del grupo placebo (p < 0.001).</li>
+                <li><strong>Percepción del paciente:</strong> El 80.2% de los pacientes calificó la eficacia del tratamiento como "buena o muy buena" (vs. 40.1% con placebo).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Perfil de Seguridad y Conclusión -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🛡️</div>
+              <h2>3. Perfil de Seguridad y Tolerabilidad</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Excelente tolerabilidad:</strong> La incidencia de eventos adversos (EA) fue comparable al grupo placebo (13.2% para EA 575 vs. 15.4% para placebo).</li>
+                <li><strong>Sin señales de alerta:</strong> No se reportaron eventos adversos graves ni severos. El evento más frecuente fue el empeoramiento transitorio de la tos, el cual fue ligeramente menor en el grupo de hiedra que en el de placebo.</li>
+              </ul>
+              
+              <blockquote style="margin-top: 1rem;">
+                "El extracto seco de hoja de Hedera helix L. (EA 575) cuenta con evidencia científica de alta calidad que avala su uso para la tos aguda. Su administración durante 7 días reduce rápidamente la intensidad de la tos, acelera la recuperación en aproximadamente 3 días respecto a la evolución natural de la enfermedad y duplica la tasa de pacientes libres de tos a las dos semanas. Su perfil de seguridad es indistinguible del de un placebo..."
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN LAVANDA ================= -->
+      <section id="lavanda" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/lavanda.png" alt="Lavanda">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Lavanda</h1>
+              <div class="scientific">Lavandula angustifolia</div>
+            </div>
+            <div class="plant-tagline">Meta-análisis de formulaciones orales estandarizadas y/o inhalación para la ansiedad.</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Ficha de Evidencia -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📖</div>
+              <h2>1. Fuente de Evidencia y Producto</h2>
+            </div>
+            <div class="card-body">
+              <div class="badge-container">
+                <span class="badge badge-accent">Evidencia: Nivel I (El más alto)</span>
+                <span class="badge">Aceite esencial - Silexan</span>
+                <span class="badge">1.213 Pacientes</span>
+              </div>
+              <ul>
+                <li><strong>Propósito:</strong> Avalar el uso de <em>Lavandula angustifolia</em> (específicamente el extracto estandarizado Silexan) para el tratamiento de trastornos de ansiedad.</li>
+                <li><strong>Fuente Bibliográfica:</strong>
+                  <ul>
+                    <li>Revista: <em>European Archives of Psychiatry and Clinical Neuroscience</em> (2023; 273(7):1615–1628).</li>
+                    <li>Tipo de estudio: Meta-análisis de Ensayos Clínicos Aleatorizados (ECA), doble ciego y controlados con placebo.</li>
+                    <li>Autores principales: Dold, M., Bartova, L., Volz, H.P., et al.</li>
+                  </ul>
+                </li>
+                <li><strong>Identificación del Producto Fitoterapéutico:</strong>
+                  <ul>
+                    <li>Planta: <em>Lavandula angustifolia</em> (Lavanda).</li>
+                    <li>Forma farmacéutica avalada: Aceite esencial por vía oral, altamente estandarizado bajo el nombre patentado <strong>Silexan</strong> (cumple y supera los requisitos de la Farmacopea Europea).</li>
+                    <li>Posología evaluada: 80 mg una vez al día (1 cápsula).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Población y Eficacia -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">👥</div>
+              <h2>2. Población y Resultados de Eficacia</h2>
+            </div>
+            <div class="card-body">
+              <strong>Población e Indicaciones Estudiadas:</strong>
+              <p style="margin-bottom: 0.5rem;">Adultos ambulatorios (18-65 años) diagnosticados con:</p>
+              <ul>
+                <li>Ansiedad subumbral (subsyndromal anxiety).</li>
+                <li>Trastorno Mixto de Ansiedad y Depresión (MADD).</li>
+                <li>Trastorno de Ansiedad Generalizada (TAG / GAD).</li>
+                <li><strong>Muestra total analizada:</strong> 1.213 pacientes.</li>
+              </ul>
+              
+              <strong style="margin-top: 1rem; display: block;">Resultados de Eficacia (Datos Cuantitativos):</strong>
+              <p>Tras 10 semanas de tratamiento, Silexan demostró superioridad estadística y clínica frente al placebo:</p>
+              <ul>
+                <li><strong>Reducción de la ansiedad:</strong> Disminución promedio de 2.9 puntos en la escala HAMA (Hamilton Anxiety Rating Scale) respecto al placebo.</li>
+                <li><strong>Tasa de respuesta:</strong> El <strong>51.8%</strong> de los pacientes tratados con lavanda lograron una reducción ≥50% en la escala HAMA, frente al 38.8% del grupo placebo (Número Necesario a Tratar - NNT = 8).</li>
+                <li><strong>Mejoría global:</strong> Los pacientes tratados tuvieron un 51% más de probabilidades de mostrar una mejoría "mucho o muy mejorada" según la escala CGI.</li>
+                <li><strong>Calidad de vida:</strong> Mejoría estadísticamente significativa tanto en el componente de salud física como mental (cuestionario SF-36).</li>
+                <li><strong>Comparación con fármacos convencionales:</strong> El tamaño del efecto de Silexan (SMD = 0.35) se sitúa en el mismo rango de eficacia que los fármacos de primera línea actuales (ISRS e IRSN como la venlafaxina o sertralina).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Perfil de Seguridad -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🛡️</div>
+              <h2>3. Perfil de Seguridad y Tolerabilidad (Ventaja Clínica)</h2>
+            </div>
+            <div class="card-body">
+              <p style="margin-bottom: 0.5rem;">Este es el argumento principal para elegir la planta frente a psicotrópicos sintéticos:</p>
+              <ul>
+                <li><strong>Sin diferencias frente al placebo:</strong> No hubo diferencias significativas en la aparición de eventos adversos (EA), eventos adversos graves (EAG), ni en el abandono del tratamiento por efectos secundarios.</li>
+                <li><strong>Sin sedación:</strong> A diferencia de las benzodiacepinas, no deprime el Sistema Nervioso Central ni afecta la capacidad para conducir o realizar actividades diarias.</li>
+                <li><strong>Sin síndrome de abstinencia:</strong> No produce síntomas de retirada ni dependencia, incluso si se suspende abruptamente.</li>
+                <li><strong>Sin interacciones clínicas relevantes:</strong> No inhibe ni induce las enzimas del citocromo P450 (CYP1A2, 2C9, 2C19, 2D6, 3A4) y no interactúa con anticonceptivos orales.</li>
+                <li><strong>Efectos secundarios leves:</strong> Los únicos efectos reportados fueron leves y transitorios (ej. eructos con sabor a lavanda o náuseas leves).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Conclusión -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🩺</div>
+              <h2>4. Conclusión para Avalar su Uso</h2>
+            </div>
+            <div class="card-body">
+              <p>El presente meta-análisis proporciona evidencia robusta de alto nivel científico que respalda la utilización del aceite esencial estandarizado de <em>Lavandula angustifolia</em> (<strong>Silexan a 80 mg/día</strong>) como <strong>tratamiento de primera línea para los trastornos de ansiedad</strong>.</p>
+              <div class="highlight-box" style="margin-top: 1rem;">
+                <p>Su uso está justificado por ofrecer una eficacia equivalente a los antidepresivos convencionales (ISRS/IRSN), pero con un perfil de seguridad equiparable al placebo, evitando problemas comunes de la psiquiatría estándar como la sedación, el aumento de peso, la disfunción sexual, el riesgo de dependencia o el síndrome de discontinuación.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN TORONJIL ================= -->
+      <section id="toronjil" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/toronjil.png" alt="Toronjil">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Toronjil / Melisa</h1>
+              <div class="scientific">Melissa officinalis</div>
+            </div>
+            <div class="plant-tagline">Evidencia clínica y revisiones sobre ansiedad, estado de ánimo y sueño.</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Contexto e Identificación -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📚</div>
+              <h2>1. Contexto e Identificación</h2>
+            </div>
+            <div class="card-body">
+              <strong>Referencia:</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Paracha, M. A., Khan, S. A. J., Zarkaish, R., Fazal, F., Khan, M. D., & Ahmad, M. (2025). Effectiveness of Lesser Known Herbal Sedatives for Insomnia: A Systematic Review and Meta-Analysis. <em>Preprint</em>. <a href="https://doi.org/10.64898/2026.03.23.26349099" target="_blank" style="color: var(--color-accent);">DOI Link</a> (Protocolo PROSPERO: CRD420251101795).</p>
+              
+              <strong>Contexto dentro de la revisión:</strong>
+              <p>A pesar de ser una planta con uso histórico, el artículo la clasifica dentro del grupo de "sedantes herbales menos conocidos" que habían recibido poca cobertura metodológica en comparación con la valeriana o la manzanilla. El objetivo de esta revisión sistemática fue precisamente darles a plantas como la Melisa el rigor de un metaanálisis para evaluar su verdadera eficacia frente a placebos o cuidado habitual. A pesar de ser un artículo en preimpresión, esta revisión sistemática aporta datos cuantitativos valiosos basados en una metodología rigurosa (directrices PRISMA 2020 y protocolo pre-registrado).</p>
+            </div>
+          </div>
+
+          <!-- Volumen y Datos Estadísticos -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📊</div>
+              <h2>2. Volumen de Estudios y Datos Estadísticos</h2>
+            </div>
+            <div class="card-body">
+              <strong>Volumen y diseño de los estudios:</strong>
+              <p>La eficacia de <em>Melissa officinalis</em> como intervención individual (no mezclada con otras plantas) fue evaluada en <strong>4 Ensayos Clínicos Aleatorizados (ECA)</strong>. Los tratamientos en estos estudios tuvieron una duración estándar corta, oscilando entre <strong>2 y 4 semanas</strong>, lo que indica que los beneficios observados se dan en un periodo de tiempo rápido.</p>
+              
+              <strong style="margin-top: 1rem; display: block;">Los datos estadísticos (El argumento principal):</strong>
+              <p>En el análisis de subgrupos dedicado exclusivamente a esta planta, los resultados fueron contundentes:</p>
+              <ul>
+                <li><strong>Magnitud del efecto:</strong> Diferencia de Medias Estandarizada (DME) de <strong>-0.66</strong> (IC 95%: -0.92 a -0.40). En términos prácticos, una DME de -0.66 se considera un <strong>efecto de tamaño moderado</strong>, lo que significa que la mejoría en la calidad del sueño es clínicamente perceptible para el paciente.</li>
+                <li><strong>Significancia estadística:</strong> El valor <strong>p &lt; 0.00001</strong> descarta casi por completo que el resultado sea producto del azar.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Ventaja Competitiva -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">⚡</div>
+              <h2>3. La Ventaja Competitiva de la Melisa: Heterogeneidad Cero (I² = 0%)</h2>
+            </div>
+            <div class="card-body">
+              <p style="margin-bottom: 0.5rem;">Si tienes que defender la Melisa frente a otras plantas (como la manzanilla o la pasiflora) usando este artículo, este es tu dato definitivo:</p>
+              <ul>
+                <li>La manzanilla, aunque tuvo un efecto mayor (DME -1.06), tuvo una heterogeneidad del 96% (los resultados de los 10 estudios eran muy dispares entre sí).</li>
+                <li>La Melisa obtuvo un <strong>I² = 0% (p = 0.84)</strong>.</li>
+                <li><strong>¿Qué significa esto en la práctica?</strong> Significa que los resultados de los 4 ensayos clínicos son <strong>virtualmente idénticos entre sí</strong>. Da igual el país, el paciente o el investigador; la Melisa responde de manera altamente predecible y uniforme. Esto es oro en investigación clínica, ya que otorga muchísima fiabilidad al resultado.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Evidencia Complementaria y Conclusión -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🩺</div>
+              <h2>4. Evidencia Complementaria y Conclusión</h2>
+            </div>
+            <div class="card-body">
+              <strong>Evidencia complementaria (Estudios no aleatorizados):</strong>
+              <p style="margin-bottom: 1rem;">Más allá de los ensayos clínicos estrictos, la revisión analizó estudios observacionales. En concreto, el estudio de <em>Cases et al. (2011)</em> evidenció una "mejora clínica significativa" en las puntuaciones basales de los pacientes (medida con la escala HRSD, que evalúa depresión y síntomas asociados al insomnio), reforzando la idea de que la mejora del sueño con Melisa también impacta positivamente en el estado de ánimo diurno.</p>
+              
+              <strong>Conclusión:</strong>
+              <blockquote>
+                "El uso de Melissa officinalis para el manejo del insomnio está respaldado por evidencia de certeza moderada (GRADE). A diferencia de otros fitoterápicos que muestran gran variabilidad en sus resultados, el metaanálisis demuestra que la Melisa produce una mejora moderada y consistente en la calidad del sueño (DME -0.66, p&lt;0.00001) con una heterogeneidad nula (I²=0%). Esto la posiciona como una de las opciones herbales con mayor previsibilidad de respuesta clínica, logrando mejoras significativas en periodos cortos de 2 a 4 semanas de tratamiento."
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN CHILE ================= -->
+      <section id="chile" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/chile.png" alt="Chile">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Chile / Capsaicina</h1>
+              <div class="scientific">Capsicum annuum</div>
+            </div>
+            <div class="plant-tagline">Evidencia sólida para dolor crónico/neuropático mediante capsaicina tópica.</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Ficha de Evidencia -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📌</div>
+              <h2>Ficha de Evidencia Científica</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Planta / Principio Activo avalado:</strong> <em>Capsicum spp.</em> (Chile) / Capsaicina tópica (cremas/parches).</li>
+                <li><strong>Fuente de evidencia:</strong> Revisión sistemática y metanálisis publicado en <strong>The BMJ</strong> (British Medical Journal).</li>
+                <li><strong>Autores:</strong> Mason L, Moore RA, Derry S, Edwards JE, McQuay HJ.</li>
+                <li><strong>Referencia:</strong> BMJ 2004;328(7446):991. PMID: 15033881.</li>
+                <li><strong>Justificación del uso de la planta (Fundamento Fitoquímico y Farmacológico):</strong> El uso tópico de la planta <em>Capsicum</em> (chile) se justifica por la presencia de <strong>capsaicina</strong>, el compuesto responsable de su sabor picante. Su mecanismo de acción a nivel cutáneo consiste en unirse a los nociceptores, lo que genera una estimulación inicial seguida de una fase de desensibilización. Esto se produce por el agotamiento de la "sustancia P" (un neurotransmisor del dolor) y la degeneración temporal de las fibras nerviosas epidérmicas, lo que resulta en una reducción de la percepción del dolor (hipalgesia).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Eficacia Clínica -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📈</div>
+              <h2>1. Eficacia Clínica (Datos Cuantitativos)</h2>
+            </div>
+            <div class="card-body">
+              <p style="margin-bottom: 0.5rem;">La revisión analizó <strong>16 ensayos clínicos aleatorizados y doble ciego</strong>, con un total de <strong>1.556 pacientes</strong>. Se demostró que la capsaicina es superior al placebo en dos grandes grupos de dolor crónico:</p>
+              
+              <strong style="margin-top: 0.5rem; display: block;">Dolor Neuropático (ej. neuropatía diabética, neuralgia postherpética):</strong>
+              <ul>
+                <li>Concentración utilizada: 0.075% (aplicada 3-4 veces al día durante 8 semanas).</li>
+                <li>Resultado: El <strong>60%</strong> de los pacientes tratados logró una reducción del dolor de al menos el 50%.</li>
+                <li><strong>Número Necesario a Tratar (NNT): 5.7</strong> (Es decir, por cada 6 pacientes que usan la capsaicina, uno obtiene un alivio significativo que no habría logrado con placebo).</li>
+              </ul>
+
+              <strong style="margin-top: 0.5rem; display: block;">Dolor Musculoesquelético (ej. osteoartritis, dolor lumbar crónico):</strong>
+              <ul>
+                <li>Concentración utilizada: 0.025% o en parche (aplicado durante 4 semanas).</li>
+                <li>Resultado: El <strong>38%</strong> de los pacientes tratados logró una reducción del dolor de al menos el 50%.</li>
+                <li><strong>Número Necesario a Tratar (NNT): 8.1</strong> (Es decir, por cada 8 pacientes, uno se beneficia significativamente).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Perfil de Seguridad -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🛡️</div>
+              <h2>2. Perfil de Seguridad y Tolerabilidad</h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Efectos adversos locales:</strong> Son predecibles debido al mecanismo de la planta. Alrededor de un tercio de los pacientes experimenta ardor, escozor o eritema en el sitio de aplicación (<strong>NNT para daño = 2.5</strong>).</li>
+                <li><strong>Abandono del tratamiento:</strong> A pesar de la irritación local inicial, la tasa de abandono es baja. Solo 1 de cada 10 pacientes suspende el tratamiento por este motivo (<strong>NNT para abandono = 9.8</strong>).</li>
+                <li><strong>Efectos sistémicos:</strong> Son raros, lo que convierte a la capsaicina tópica en una opción segura desde el punto de vista cardiovascular o gastrointestinal.</li>
+                <li><strong>Nota clínica importante:</strong> Los autores destacan que estos efectos locales suelen disminuir con el uso continuado.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Conclusión -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🩺</div>
+              <h2>3. Conclusión para Avalar su Uso</h2>
+            </div>
+            <div class="card-body">
+              <p>A pesar de que la revisión clasifica su eficacia general como "moderada a pobre" en comparación con otros analgésicos sistémicos, el estudio concluye y avala firmemente el uso de la capsaicina derivada del <em>Capsicum</em> bajo la siguiente premisa clínica:</p>
+              <blockquote>
+                "La capsaicina tópica es útil como terapia coadyuvante o como tratamiento único para un subgrupo específico de pacientes que no responden a, o son intolerantes a, otros tratamientos convencionales para el dolor crónico."
+              </blockquote>
+              <p style="margin-top: 0.5rem;">Su principal valor clínico radica en ser una alternativa local, segura y con respaldo estadístico para pacientes refractarios, evitando los efectos secundarios sistémicos de los analgésicos orales.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN HIGO ================= -->
+      <section id="higo" class="plant-section">
+        <div class="plant-hero">
+          <img class="plant-hero-img" src="assets/images/higo.png" alt="Higo">
+          <div class="plant-hero-content">
+            <div class="plant-title-wrapper">
+              <h1>Higo</h1>
+              <div class="scientific">Ficus carica</div>
+            </div>
+            <div class="plant-tagline">Ensayo clínico con té de hoja en dermatitis atópica leve (evidencia preliminar).</div>
+          </div>
+        </div>
+
+        <div class="plant-grid">
+          
+          <!-- Calidad e Indicación -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📚</div>
+              <h2>1. Fuente, Calidad e Indicación Terapéutica</h2>
+            </div>
+            <div class="card-body">
+              <strong>Fuente y Calidad de la Evidencia:</strong>
+              <ul>
+                <li>Revista: <em>Nutrients</em> (Índice de impacto alto, revista de acceso abierto y rigor revisado por pares).</li>
+                <li>Año: Octubre 2022 (DOI: 10.3390/nu14214470).</li>
+                <li>Tipo de estudio: Ensayo Clínico Preliminar, Aleatorizado, Doble Ciego y Controlado con Placebo (ECA). <br><em>Nota: Este es el nivel de evidencia más alto y riguroso para probar la eficacia de un producto.</em></li>
+                <li>Muestra: 30 adultos con dermatitis atópica leve (15 grupo de intervención, 15 grupo placebo).</li>
+              </ul>
+              
+              <strong style="margin-top: 1rem; display: block;">Indicación Terapéutica Avalada:</strong>
+              <p>Alivio de los síntomas de la Dermatitis Atópica (DA) leve, una condición crónica caracterizada por piel seca, inflamación y picor intenso, para la cual los tratamientos convencionales (como corticoides tópicos) conllevan riesgos de efectos secundarios a largo plazo.</p>
+            </div>
+          </div>
+
+          <!-- Eficacia Clínica -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">📈</div>
+              <h2>2. Evidencia de Eficacia (Resultados Clínicos)</h2>
+            </div>
+            <div class="card-body">
+              <p style="margin-bottom: 0.5rem;">El consumo prolongado de té de hojas de higo demostró una eficacia estadísticamente significativa frente al placebo:</p>
+              <ul>
+                <li><strong>Reducción del EASI:</strong> El índice de Área y Gravedad del Eczema (EASI, por sus siglas en inglés, el estándar de medición objetiva dermatológica) disminuyó significativamente en el grupo que tomó el té desde la semana 4 de tratamiento, alcanzando su punto máximo en la <strong>semana 8</strong> (p &lt; 0.05).</li>
+                <li><strong>Tasa de éxito:</strong> <strong>14 de los 15 participantes (93.3%)</strong> que consumieron el té mostraron una mejoría positiva en sus síntomas. En contraste, en el grupo placebo, 7 participantes empeoraron.</li>
+                <li><strong>Efecto dependiente del consumo continuo:</strong> Al suspender el té durante 4 semanas (semana 12 del estudio), los síntomas tendieron a reaparecer, demostrando que su ingesta sostenida es clave para mantener el beneficio.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mecanismo y Dosificación -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">🔬</div>
+              <h2>3. Mecanismo de Acción y Dosificación</h2>
+            </div>
+            <div class="card-body">
+              <strong>Mecanismo de Acción Propuesto:</strong>
+              <p style="margin-bottom: 0.5rem;">La eficacia de la hoja de <em>Ficus carica</em> se atribuye a su rica composición en polifenoles y flavonoides (principalmente rutina, quercetina y 8-hidroxicumarina):</p>
+              <ul>
+                <li><strong>Bloqueo de la respuesta alérgica:</strong> Inhibe la unión de los anticuerpos IgE a sus receptores (FcεRI), un mecanismo de acción similar al de fármacos biológicos utilizados para el asma y la dermatitis (ej. Omalizumab).</li>
+                <li><strong>Acción antiinflamatoria:</strong> Suprime citocinas inflamatorias (IL-4, IL-13) involucradas en el picor y el engrosamiento de la piel.</li>
+              </ul>
+
+              <strong style="margin-top: 1rem; display: block;">Dosificación Eficaz Evaluada:</strong>
+              <ul>
+                <li><strong>Formato:</strong> Infusión (té) de hojas secas procesadas (lavadas, vaporizadas y deshidratadas).</li>
+                <li><strong>Concentración:</strong> Equivalente a 30 mg de hoja por mL de agua.</li>
+                <li><strong>Dosis diaria:</strong> 500 mL al día.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Seguridad y Alerta Furanocumarinas -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="card-icon">⚠️</div>
+              <h2>4. Perfil de Seguridad y Toxicología (Punto Crítico)</h2>
+            </div>
+            <div class="card-body">
+              <p>El estudio demostró que el consumo prolongado del té es altamente seguro, pero destaca una advertencia fundamental para su uso comercial o terapéutico:</p>
+              <ul>
+                <li><strong>Seguridad hematológica y hepática:</strong> No se observaron variaciones peligrosas en análisis de sangre y orina. Inesperadamente, se observó una mejora en marcadores de función hepática (reducción de AST, LDH y ALP) en el grupo de intervención.</li>
+              </ul>
+              
+              <div class="alert alert-danger" style="margin-top: 1rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <div>
+                  <strong>Alerta Crítica sobre Furanocumarinas:</strong><br>
+                  Muchas variedades de higo contienen furanocumarinas (como el psoraleno), las cuales son <strong>fototóxicas</strong> y causan erupciones cutáneas al exponerse al sol, además de interactuar con medicamentos. El estudio utilizó una variedad específica (<strong>'Grise de Tarascon'</strong>) libre de furanocumarinas, lo cual es un <strong>requisito indispensable</strong> para avalar su seguridad como alimento funcional o terapia.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conclusión General Higo -->
+          <div class="info-card full-width">
+            <div class="card-header">
+              <div class="card-icon">🩺</div>
+              <h2>5. Conclusión para Avalar su Uso</h2>
+            </div>
+            <div class="card-body">
+              <p>El presente ensayo clínico proporciona <strong>evidencia científica sólida y directa</strong> para respaldar la comercialización o recomendación del té de hojas de <em>Ficus carica L.</em> como un <strong>alimento funcional o terapia complementaria segura y eficaz</strong> para el alivio de la dermatitis atópica leve.</p>
+              <div class="highlight-box" style="margin-top: 1rem;">
+                <p>Su mecanismo de acción a nivel inmunológico, su alta tasa de éxito en la reducción objetiva del eccema y su excelente perfil de seguridad (siempre y cuando se garantice la ausencia de furanocumarinas) lo posicionan como una alternativa natural válida frente a los tratamientos farmacológicos convencionales de largo plazo.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>© 2026 Portal de Fitoterapia Clínica. Basado en evidencias científicas de alta calidad, metanálisis y revisiones Cochrane.</p>
+      <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.75rem;">Nota: Toda la información ha sido migrada íntegramente del reporte clínico original sin omitir datos cuantitativos ni advertencias críticas de seguridad.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
