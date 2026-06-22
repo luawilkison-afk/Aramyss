@@ -12,10 +12,16 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <a href="#" class="logo" onclick="navigateToPlant('inicio')">
-        <div class="logo-icon">🌿</div>
-        <span>Fitoterapia Clinica</span>
-      </a>
+      <div class="logo-wrapper">
+        <a href="#" class="logo" onclick="navigateToPlant('inicio')">
+          <div class="logo-icon">🌿</div>
+          <span>Fitoterapia Clinica</span>
+        </a>
+        <div class="header-partners">
+          <img src="assets/images/logo_jmc.png" alt="JMC logo">
+          <img src="assets/images/logo_musuq.png" alt="Musuq logo">
+        </div>
+      </div>
       <div class="search-bar">
         <svg viewBox="0 0 24 24">
           <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
@@ -30,39 +36,15 @@
     
     <!-- Sidebar / Navegación -->
     <aside class="sidebar">
-      <div class="sidebar-title">Planes de Evidencia</div>
+      <div class="sidebar-title">Vivero</div>
       <nav class="tabs-nav">
-        <button class="tab-btn active" data-target="inicio">
-          <span>Inicio / Resumen</span>
-          <span class="scientific-name">Vista General</span>
+        <button class="tab-btn active" data-target="vivero">
+          <span>Plantas en Vivero</span>
+          <span class="scientific-name">Clasificación Local</span>
         </button>
-        <button class="tab-btn" data-target="aloe-vera">
-          <span>Aloe Vera</span>
-          <span class="scientific-name">Aloe vera</span>
-        </button>
-        <button class="tab-btn" data-target="calendula">
-          <span>Caléndula</span>
-          <span class="scientific-name">Calendula officinalis</span>
-        </button>
-        <button class="tab-btn" data-target="hiedra">
-          <span>Hiedra</span>
-          <span class="scientific-name">Hedera helix</span>
-        </button>
-        <button class="tab-btn" data-target="lavanda">
-          <span>Lavanda</span>
-          <span class="scientific-name">Lavandula angustifolia</span>
-        </button>
-        <button class="tab-btn" data-target="toronjil">
-          <span>Toronjil / Melisa</span>
-          <span class="scientific-name">Melissa officinalis</span>
-        </button>
-        <button class="tab-btn" data-target="chile">
-          <span>Chile / Capsaicina</span>
-          <span class="scientific-name">Capsicum annuum</span>
-        </button>
-        <button class="tab-btn" data-target="higo">
-          <span>Higo / Té de hoja</span>
-          <span class="scientific-name">Ficus carica</span>
+        <button class="tab-btn" data-target="uso-medico">
+          <span>Uso Médico</span>
+          <span class="scientific-name">Evidencia Clínica</span>
         </button>
       </nav>
     </aside>
@@ -70,11 +52,76 @@
     <!-- Zona de Contenido -->
     <main class="content-area">
 
-      <!-- ================= SECCIÓN INICIO ================= -->
-      <section id="inicio" class="plant-section active">
+      <!-- ================= SECCIÓN VIVERO ================= -->
+      <section id="vivero" class="plant-section active">
+        <div class="vivero-container">
+          <h1 class="vivero-title">Catálogo de Especies del Vivero</h1>
+          <p class="vivero-desc">Explora la clasificación completa de las especies disponibles en nuestro vivero: plantas de semisombra, sol directo, cactus, suculentas, plantas de sombra, árboles y frutales.</p>
+          
+          <!-- Panel de Estadísticas -->
+          <div class="vivero-stats">
+            <div class="stat-pill" data-cat="todas">
+              <span class="stat-emoji">🌿</span>
+              <span class="stat-count" id="count-todas">0</span>
+              <span class="stat-label">Todas</span>
+            </div>
+            <div class="stat-pill" data-cat="semisombra">
+              <span class="stat-emoji">☀️</span>
+              <span class="stat-count" id="count-semisombra">0</span>
+              <span class="stat-label">Semisombra</span>
+            </div>
+            <div class="stat-pill" data-cat="cactus">
+              <span class="stat-emoji">🌵</span>
+              <span class="stat-count" id="count-cactus">0</span>
+              <span class="stat-label">Suculentas</span>
+            </div>
+            <div class="stat-pill" data-cat="sombra">
+              <span class="stat-emoji">🍃</span>
+              <span class="stat-count" id="count-sombra">0</span>
+              <span class="stat-label">Sombra</span>
+            </div>
+            <div class="stat-pill" data-cat="arboles">
+              <span class="stat-emoji">🌳</span>
+              <span class="stat-count" id="count-arboles">0</span>
+              <span class="stat-label">Árboles</span>
+            </div>
+            <div class="stat-pill" data-cat="frutales">
+              <span class="stat-emoji">🍎</span>
+              <span class="stat-count" id="count-frutales">0</span>
+              <span class="stat-label">Frutales</span>
+            </div>
+          </div>
+
+          <!-- Barra de Búsqueda y Filtros Internos -->
+          <div class="vivero-filter-bar">
+            <div class="vivero-search-wrapper">
+              <svg viewBox="0 0 24 24" width="16" height="16">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
+              </svg>
+              <input type="text" id="viveroSearch" placeholder="Buscar especie o nombre científico...">
+            </div>
+            <div class="vivero-filter-pills">
+              <button class="filter-pill active" data-filter="todas">Todas</button>
+              <button class="filter-pill" data-filter="semisombra">Semisombra / Sol</button>
+              <button class="filter-pill" data-filter="cactus">Cactus / Suculentas</button>
+              <button class="filter-pill" data-filter="sombra">Sombra</button>
+              <button class="filter-pill" data-filter="arboles">Árboles</button>
+              <button class="filter-pill" data-filter="frutales">Frutales</button>
+            </div>
+          </div>
+
+          <!-- Cuadrícula de Tarjetas -->
+          <div class="vivero-grid" id="viveroGrid">
+            <!-- Renderizado dinámico vía JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECCIÓN USO MÉDICO ================= -->
+      <section id="uso-medico" class="plant-section">
         <div class="welcome-container">
           <h1 class="welcome-title">Plantas de Uso Médico</h1>
-          <p class="welcome-desc">Evidencia clínica rigurosa, metanálisis y revisiones sistemáticas sin omisiones. Navegue a través de las pestañas laterales o haga clic en las tarjetas inferiores para explorar en detalle cada estudio.</p>
+          <p class="welcome-desc">Evidencia clínica rigurosa, metanálisis y revisiones sistemáticas sin omisiones. Haga clic en las tarjetas inferiores para explorar en detalle cada estudio y su evidencia científica.</p>
           
           <div class="plant-cards-grid">
             
@@ -140,6 +187,10 @@
 
       <!-- ================= SECCIÓN ALOE VERA ================= -->
       <section id="aloe-vera" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/aloe_vera.png" alt="Aloe vera">
           <div class="plant-hero-content">
@@ -333,6 +384,10 @@
 
       <!-- ================= SECCIÓN CALÉNDULA ================= -->
       <section id="calendula" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/calendula.png" alt="Caléndula">
           <div class="plant-hero-content">
@@ -420,6 +475,10 @@
 
       <!-- ================= SECCIÓN HIEDRA ================= -->
       <section id="hiedra" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/hiedra.png" alt="Hiedra">
           <div class="plant-hero-content">
@@ -517,6 +576,10 @@
 
       <!-- ================= SECCIÓN LAVANDA ================= -->
       <section id="lavanda" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/lavanda.png" alt="Lavanda">
           <div class="plant-hero-content">
@@ -627,6 +690,10 @@
 
       <!-- ================= SECCIÓN TORONJIL ================= -->
       <section id="toronjil" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/toronjil.png" alt="Toronjil">
           <div class="plant-hero-content">
@@ -712,6 +779,10 @@
 
       <!-- ================= SECCIÓN CHILE ================= -->
       <section id="chile" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/chile.png" alt="Chile">
           <div class="plant-hero-content">
@@ -803,6 +874,10 @@
 
       <!-- ================= SECCIÓN HIGO ================= -->
       <section id="higo" class="plant-section">
+        <button class="back-btn" onclick="navigateToPlant('uso-medico')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+          <span>Volver al Catálogo Médico</span>
+        </button>
         <div class="plant-hero">
           <img class="plant-hero-img" src="assets/images/higo.png" alt="Higo">
           <div class="plant-hero-content">
@@ -921,10 +996,28 @@
   <!-- Footer -->
   <footer class="main-footer">
     <div class="footer-container">
+      <div class="footer-branding">
+        <div class="branding-logos">
+          <div class="brand-logo">
+            <img src="assets/images/logo_jmc.png" alt="JMC Soluciones Ambientales">
+          </div>
+          <div class="brand-logo">
+            <img src="assets/images/logo_musuq.png" alt="Musuq">
+          </div>
+        </div>
+      </div>
       <p>© 2026 Portal de Fitoterapia Clínica. Basado en evidencias científicas de alta calidad, metanálisis y revisiones Cochrane.</p>
       <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.75rem;">Nota: Toda la información ha sido migrada íntegramente del reporte clínico original sin omitir datos cuantitativos ni advertencias críticas de seguridad.</p>
     </div>
   </footer>
+
+  <!-- Marcas de agua de fondo (Estampado) -->
+  <div class="watermark watermark-left">
+    <img src="assets/images/logo_musuq.png" alt="Musuq Sello">
+  </div>
+  <div class="watermark watermark-right">
+    <img src="assets/images/logo_jmc.png" alt="JMC Sello">
+  </div>
 
   <script src="app.js"></script>
 </body>
