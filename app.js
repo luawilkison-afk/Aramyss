@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Base de Datos Completa de Especies del Vivero (según PDF adjunto)
   const viveroPlants = [
     // === SEMISOMBRA Y SOL DIRECTO ===
-    { especie: "Bailarinas", cientifico: "Fuchsia magellanica", categoria: "semisombra" },
+    { especie: "Bailarinas", cientifico: "Fuchsia magellanica", categoria: "semisombra", imagen: "assets/images/bailarinas.png"},
     { especie: "Geranio rey", cientifico: "Pelargonium grandiflorum", categoria: "semisombra" },
     { especie: "Floripondio", cientifico: "Sin nombre científico registrado", categoria: "semisombra" },
     { especie: "Chiflera", cientifico: "Schefflera arboricola", categoria: "semisombra" },
