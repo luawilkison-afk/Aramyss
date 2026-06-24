@@ -369,7 +369,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Soporte para Enlaces Directos vía Hash (ej: index.html#aloe-vera) ---
+  function checkUrlHash() {
+    const hash = window.location.hash.substring(1); // obtener el ID sin el '#'
+    if (hash) {
+      const targetSection = document.getElementById(hash);
+      if (targetSection && targetSection.classList.contains('plant-section')) {
+        switchTab(hash);
+      }
+    }
+  }
+
   // Inicializar vivero
   calculateStats();
   renderVivero();
+
+  // Comprobar el hash al cargar la página y cuando cambie
+  checkUrlHash();
+  window.addEventListener('hashchange', checkUrlHash);
 });
