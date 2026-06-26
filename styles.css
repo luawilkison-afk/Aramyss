@@ -1142,3 +1142,32 @@ footer.main-footer {
   }
 }
 
+/* ================= OPTIMIZACIONES DE RENDIMIENTO ================= */
+.vivero-card {
+  content-visibility: auto; /* Evita que el navegador procese tarjetas fuera del campo de visión */
+  contain-intrinsic-size: 250px; /* Marcador de posición de altura para el motor de render */
+}
+
+.load-more-btn {
+  display: block;
+  margin: 2.5rem auto 1.5rem auto;
+  background-color: rgba(92, 184, 120, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.load-more-btn:hover {
+  background-color: var(--color-accent);
+  color: #090e0a;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(92, 184, 120, 0.35);
+  transform: translateY(-2px);
+}
+
