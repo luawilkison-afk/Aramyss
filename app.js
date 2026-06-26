@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { especie: "Manzana", cientifico: "INJERTADO", categoria: "frutales", imagen: "assets/images/manzana.png"},
     { especie: "Pepino dulce", cientifico: "Solanum muricatum", categoria: "frutales", imagen: "assets/images/pepinodulce.png"},
     { especie: "Higo", cientifico: "Ficus carica", categoria: "frutales", imagen: "assets/images/higos.png"},
-    { especie: "Cerezo", cientifico: "INJERTADO", categoria: "frutales", imagen: "assets/images/cerezo.png"},
+    { especie: "Ciruela", cientifico: "INJERTADO", categoria: "frutales", imagen: "assets/images/ciruela.png"},
     { especie: "Pera", cientifico: "INJERTADO", categoria: "frutales", imagen: "assets/images/pera.png"}
   ];
 
