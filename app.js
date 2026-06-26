@@ -193,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Lógica del Catálogo de Vivero ---
   let activeFilter = 'todas';
   let activeSearch = '';
+  let visibleCount = 24; // Mostrar 24 plantas inicialmente para evitar sobrecargar el navegador
 
   function renderVivero() {
     if (!viveroGrid) return;
@@ -212,10 +213,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <p style="font-size: 1.1rem; font-weight: 500;">No se encontraron plantas que coincidan con tu búsqueda.</p>
         </div>
       `;
+      toggleLoadMoreButton(false);
       return;
     }
 
-    filtered.forEach(plant => {
+    // Renderizar solo el número limitado de tarjetas (paginación progresiva)
+    const plantsToRender = filtered.slice(0, visibleCount);
+
+    plantsToRender.forEach(plant => {
       const card = document.createElement('div');
       card.className = 'vivero-card';
 
@@ -262,9 +267,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      // Se agrega loading="lazy" a la imagen para optimizar la descarga de imágenes en red
       card.innerHTML = `
         <div class="vivero-card-image">
-          <img src="${imageSrc}" alt="${plant.especie}">
+          <img src="${imageSrc}" alt="${plant.especie}" loading="lazy">
         </div>
         <div class="vivero-card-content">
           <div class="vivero-card-info">
@@ -278,6 +284,31 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       viveroGrid.appendChild(card);
     });
+
+    // Controlar visibilidad del botón "Cargar más"
+    toggleLoadMoreButton(filtered.length > visibleCount);
+  }
+
+  // Muestra o destruye el botón para cargar más especies en el DOM
+  function toggleLoadMoreButton(show) {
+    let btn = document.getElementById('btnLoadMore');
+    if (show) {
+      if (!btn) {
+        btn = document.createElement('button');
+        btn.id = 'btnLoadMore';
+        btn.className = 'load-more-btn';
+        btn.textContent = 'Cargar más especies';
+        btn.addEventListener('click', () => {
+          visibleCount += 24;
+          renderVivero();
+        });
+        viveroGrid.parentNode.appendChild(btn);
+      } else {
+        btn.style.display = 'block';
+      }
+    } else if (btn) {
+      btn.style.display = 'none';
+    }
   }
 
   function calculateStats() {
@@ -298,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function changeFilter(filterValue) {
     activeFilter = filterValue;
+    visibleCount = 24; // Reiniciar cuenta de visibles al cambiar de filtro
 
     // Actualizar píldoras de filtro
     filterPills.forEach(pill => {
@@ -337,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (viveroSearch) {
     viveroSearch.addEventListener('input', (e) => {
       activeSearch = e.target.value.toLowerCase().trim();
+      visibleCount = 24; // Reiniciar cuenta de visibles al buscar
       renderVivero();
     });
   }
@@ -351,6 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (isViveroActive) {
         activeSearch = query;
+        visibleCount = 24; // Reiniciar cuenta de visibles al buscar
         if (viveroSearch) viveroSearch.value = e.target.value;
         renderVivero();
       } else {
