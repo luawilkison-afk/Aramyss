@@ -1219,3 +1219,81 @@ footer.main-footer {
   }
 }
 
+/* ================= ANIMACIÓN MARQUEE (CARRUSEL LOGOS) ================= */
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  max-width: 800px;
+  margin: 1.5rem auto 1rem auto;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-fade-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 80px;
+  z-index: 10;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.marquee-fade-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 80px;
+  z-index: 10;
+  pointer-events: none;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+  will-change: transform;
+  align-items: center;
+}
+
+.marquee-inner a {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 2.5rem;
+  height: 22px;
+  transition: transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.marquee-inner a:hover {
+  transform: scale(1.08); /* micro-animación de escala al pasar el mouse */
+}
+
+.marquee-inner img {
+  height: 100%;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.35;
+  transition: opacity var(--transition-fast), filter var(--transition-fast);
+  pointer-events: none;
+}
+
+.marquee-inner a:hover img {
+  opacity: 0.85;
+  filter: none;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
