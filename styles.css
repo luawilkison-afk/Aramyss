@@ -1297,3 +1297,32 @@ footer.main-footer {
   }
 }
 
+/* Animación interactiva de hojas/plantas cayendo */
+.falling-leaf {
+  position: fixed;
+  top: -50px;
+  pointer-events: none; /* Evita que bloquee clics del usuario en otros elementos */
+  z-index: 9999;
+  user-select: none;
+  font-size: 1.5rem;
+  will-change: transform, opacity;
+  animation: fallAndSway linear forwards;
+}
+
+@keyframes fallAndSway {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(var(--rot-end)) translateX(var(--drift));
+    opacity: 0;
+  }
+}
+
