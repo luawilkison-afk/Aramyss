@@ -803,17 +803,38 @@ footer.main-footer {
   transform: scale(1.04);
 }
 
-/* Ajustes responsivos para socios en el encabezado */
+/* Ajustes responsivos para el encabezado y la estructura general en tabletas y móviles */
 @media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
   .logo-wrapper {
+    justify-content: space-between;
+    width: 100%;
     gap: 0.75rem;
+  }
+  .logo {
+    font-size: 1.25rem;
   }
   .header-partners {
     padding-left: 0.75rem;
     gap: 0.5rem;
+    border-left: 1px solid var(--border-color);
   }
   .header-partners img {
-    height: 24px;
+    height: 22px;
+  }
+  .search-bar {
+    width: 100%;
+  }
+  .main-wrapper {
+    padding: 0 1rem;
+    margin: 1.5rem auto;
   }
 }
 
@@ -1216,6 +1237,20 @@ footer.main-footer {
     right: 20px;
     width: 2.75rem;
     height: 2.75rem;
+  }
+  .logo {
+    font-size: 1.1rem; /* Compactar logo en teléfonos muy pequeños */
+  }
+  .logo-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+  .header-partners img {
+    height: 18px;
+  }
+  .info-card {
+    padding: 1.25rem; /* Reducir padding de las tarjetas de información */
   }
 }
 
