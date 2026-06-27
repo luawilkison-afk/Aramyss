@@ -298,6 +298,7 @@ header {
   transition: var(--transition-normal);
   display: flex;
   flex-direction: column;
+  min-width: 0; /* Evita que el contenedor estire las columnas del grid más allá de la pantalla */
 }
 
 .info-card:hover {
@@ -368,6 +369,12 @@ td {
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   color: var(--text-secondary);
   vertical-align: top;
+  word-break: break-word; /* Rompe palabras extremadamente largas si no hay espacio */
+  overflow-wrap: break-word;
+}
+
+td:last-child {
+  word-break: break-all; /* Fuerza a romper URLs largas (columna de enlaces) para evitar desbordes */
 }
 
 tr:last-child td {
@@ -691,6 +698,10 @@ footer.main-footer {
   
   .flow-node:not(:last-child)::after {
     display: none;
+  }
+
+  .metadata-grid {
+    grid-template-columns: 1fr;
   }
 }
 
