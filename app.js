@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Cooldown de 3 segundos para evitar saturación
       setTimeout(() => {
         leafAnimationCooldown = false;
-      }, 3000);
+      }, 5000);
     });
   }
 
