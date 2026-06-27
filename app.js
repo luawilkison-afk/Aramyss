@@ -430,6 +430,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Animación de caída de hojas en el logo ---
+  const logoLink = document.getElementById('logoLink');
+  let leafAnimationCooldown = false;
+
+  if (logoLink) {
+    logoLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (leafAnimationCooldown) return;
+
+      leafAnimationCooldown = true;
+      triggerLeafFall();
+
+      // Cooldown de 3 segundos para evitar saturación
+      setTimeout(() => {
+        leafAnimationCooldown = false;
+      }, 3000);
+    });
+  }
+
+  function triggerLeafFall() {
+    const leafEmojis = ['🌿', '🍃', '🍀', '🌱', '🍂', '🍁', '🌸'];
+    const numberOfLeaves = 40;
+
+    for (let i = 0; i < numberOfLeaves; i++) {
+      const leaf = document.createElement('div');
+      leaf.className = 'falling-leaf';
+      
+      // Emoji aleatorio
+      leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
+      
+      // Valores aleatorios para la física y escala de cada hoja
+      const left = Math.random() * 100; // Ancho de pantalla
+      const size = 1.2 + Math.random() * 1.5; // De 1.2rem a 2.7rem
+      const duration = 2.5 + Math.random() * 3.5; // De 2.5s a 6s
+      const delay = Math.random() * 1.2; // Retraso de aparición de 0s a 1.2s
+      const drift = -150 + Math.random() * 300; // Desplazamiento horizontal (-150px a 150px)
+      const rotEnd = -720 + Math.random() * 1440; // Rotación al caer
+      
+      // Aplicar estilos
+      leaf.style.left = `${left}%`;
+      leaf.style.fontSize = `${size}rem`;
+      leaf.style.animationDuration = `${duration}s`;
+      leaf.style.animationDelay = `${delay}s`;
+      
+      // Variables CSS dinámicas
+      leaf.style.setProperty('--drift', `${drift}px`);
+      leaf.style.setProperty('--rot-end', `${rotEnd}deg`);
+      
+      document.body.appendChild(leaf);
+      
+      // Eliminar el elemento del DOM al terminar su animación
+      setTimeout(() => {
+        leaf.remove();
+      }, (duration + delay) * 1000 + 100);
+    }
+  }
+
   // Inicializar vivero
   calculateStats();
   renderVivero();
